@@ -119,4 +119,36 @@ Où :
     H et W sont la hauteur et la largeur de l'entrée.
     $H_{out}$​ et $W_{out}$​ sont la hauteur et la largeur de la sortie.
 
+## Calculs de la taille des images après chaques couche de convolution et le maxpooling
+Cela est nécessaire pour connêtre la taille de sortie après le flatten, afin de mettre la taille en entrée de la fullyconnected layer nn.Linear()
+![model_compute_1](https://github.com/user-attachments/assets/f4f5c8ad-ceec-4003-bff6-7093a1147c57)
+![model_compute_2](https://github.com/user-attachments/assets/7311f0bc-3686-4b00-b68e-8e27c7c251bc)
+![model_compute_3](https://github.com/user-attachments/assets/9a3f4874-adf9-4215-b248-c36075a2babc)
+
+## Softmax
+
+
+class
+torch.nn.Softmax(dim=1) dim correspond à la dimension de sortie, si on veut un vecteur de probabilité dim = 1
+    Applies the Softmax function to an n-dimensional input Tensor.
+    Rescales them so that the elements of the n-dimensional output Tensor lie in the range [0,1] and sum to 1.
+    
+Softmax is defined as:
+    
+$Softmax(x_i)=\frac{e^{z_i}}{\sum_{j=1}^{n} e^{z_j}}$ 
+
+When the input Tensor is a sparse tensor then the unspecified values are treated as -inf.
+Shape:
+
+Input: (∗)(∗) where * means, any number of additional dimensions
+Output: (∗)(∗), same shape as the input
+
+Returns
+        a Tensor of the same dimension and shape as the input with values in the range [0, 1]
+    Parameters
+        dim (int) – A dimension along which Softmax will be computed (so every slice along dim will sum to 1).
+    Return type
+        None
+
+
 
