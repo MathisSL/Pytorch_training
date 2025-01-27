@@ -110,11 +110,12 @@ Par exemple, pour chaque sous-région de taille 2×22×2 dans une image, MaxPool
 ### Formule pour la taille de la sortie :
 
 La taille de la sortie après un pooling dépend de la taille de l'entrée, de la taille du noyau (kernel_size), du stride et du padding. La formule générale est :
-$ H_{out}=\[\frac{H−kernel\_size+2⋅padding}{stride}+1\] $
-$ W_{out}​=\[\frac{W−kernel\_size+2⋅padding}{stride}+1\] $
+
+$H_{out}=\[\frac{H−kernel\_size+2⋅padding}{stride}+1\]$
+
+$W_{out}​=\[\frac{W−kernel\_size+2⋅padding}{stride}+1\]$
 
 Où :
-
     H et W sont la hauteur et la largeur de l'entrée.
     $H_{out}$​ et $W_{out}$​ sont la hauteur et la largeur de la sortie.
 
