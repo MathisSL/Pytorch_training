@@ -77,5 +77,45 @@ Donc pour conclure sur nn.ReLu :
 Inconvénients : Les neurones avec x≤0 peuvent rester inactifs (problème de "neurones morts").
 Utilisation : Ajoutée après une couche convolutive ou linéaire dans les modèles.
 
+## nn.maxPool2d
+
+La couche torch.nn.MaxPool2d est une opération de pooling utilisée dans les réseaux de neurones convolutifs (CNN). Elle réduit la taille des images (ou des cartes de caractéristiques) tout en conservant les informations les plus importantes.
+### Rôle de MaxPool2d :
+
+MaxPool2d est une opération de pooling max qui consiste à extraire la valeur maximale dans une fenêtre de taille définie, souvent pour réduire la taille d'une image tout en gardant les caractéristiques importantes.
+
+
+![maxpool2d_gif](https://github.com/user-attachments/assets/66a644d0-9b72-4120-b1ee-fae7bf5b3199)
+
+Par exemple, pour chaque sous-région de taille 2×22×2 dans une image, MaxPool2d garde la valeur maximale.
+2. Paramètres principaux :
+
+    kernel_size :
+        Taille de la fenêtre (ou "noyau") sur laquelle l'opération de pooling est effectuée.
+        Par exemple, kernel_size=2 signifie une fenêtre 2×2.
+
+    stride (par défaut kernel_size) :
+        Pas de déplacement de la fenêtre.
+        Par exemple, stride=2 signifie que la fenêtre se déplace de 2 pixels à chaque fois et 1 pixel par pixel.
+
+    padding (par défaut 0) :
+        Ajoute des pixels autour de l'entrée avant de réaliser l'opération de pooling. Cela permet de contrôler la taille de la sortie.
+
+    dilation (par défaut 1) :
+        Espace entre les éléments dans la fenêtre de pooling. Cela permet d'élargir la fenêtre sans augmenter sa taille.
+
+    ceil_mode (par défaut False) :
+        Si True, la sortie aura une taille plus grande (on arrondit vers le haut). Par défaut, l'arrondi est vers le bas.
+
+### Formule pour la taille de la sortie :
+
+La taille de la sortie après un pooling dépend de la taille de l'entrée, de la taille du noyau (kernel_size), du stride et du padding. La formule générale est :
+$ H_{out}=\[\frac{H−kernel\_size+2⋅padding}{stride}+1\] $
+$ W_{out}​=\[\frac{W−kernel\_size+2⋅padding}{stride}+1\] $
+
+Où :
+
+    H et W sont la hauteur et la largeur de l'entrée.
+    $H_{out}$​ et $W_{out}$​ sont la hauteur et la largeur de la sortie.
 
 
